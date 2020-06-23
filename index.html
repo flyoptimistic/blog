@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-18 18:31:32" itemprop="dateModified" datetime="2020-06-18T18:31:32+08:00">2020-06-18</time>
+                <time title="修改时间：2020-06-23 15:35:26" itemprop="dateModified" datetime="2020-06-23T15:35:26+08:00">2020-06-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -339,22 +339,19 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-11 15:08:54" itemprop="dateModified" datetime="2020-06-11T15:08:54+08:00">2020-06-11</time>
+                <time title="修改时间：2020-06-23 16:04:05" itemprop="dateModified" datetime="2020-06-23T16:04:05+08:00">2020-06-23</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%EF%BC%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%EF%BC%8C%E8%84%8F%E8%AF%BB%EF%BC%8C%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%EF%BC%8C%E5%B9%BB%E8%AF%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%EF%BC%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%EF%BC%8C%E8%84%8F%E8%AF%BB%EF%BC%8C%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%EF%BC%8C%E5%B9%BB%E8%AF%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
   
   <br>
             <span class="post-meta-item" title="本文字数">
@@ -385,284 +382,14 @@
 <h5 id="一致性（Consistent）"><a href="#一致性（Consistent）" class="headerlink" title="一致性（Consistent）:"></a>一致性（Consistent）:</h5><p>在事务开始之前和完成之后，数据都必须保持一致状态，必须保证数据库的完整性。也就是说，数据必须符合数据库的规则。</p>
 <h5 id="隔离性（Isolation）："><a href="#隔离性（Isolation）：" class="headerlink" title="隔离性（Isolation）："></a>隔离性（Isolation）：</h5><p>数据库允许多个并发事务同时对数据进行操作，隔离性保证各个事务相互独立，事务处理时的中间状态对其它事务是不可见的，以此防止出现数据不一致状态。可通过事务隔离级别设置：包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）</p>
 <h5 id="持久性（Durability）："><a href="#持久性（Durability）：" class="headerlink" title="持久性（Durability）："></a>持久性（Durability）：</h5><p>事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p>
-<h3 id="MySQL-数据隔离级别"><a href="#MySQL-数据隔离级别" class="headerlink" title="MySQL 数据隔离级别:"></a>MySQL 数据隔离级别:</h3><ol>
-<li><h5 id="Read-uncommittied-读未提交数据"><a href="#Read-uncommittied-读未提交数据" class="headerlink" title="Read uncommittied(读未提交数据)"></a>Read uncommittied(读未提交数据)</h5></li>
-<li><h5 id="Read-committied-读已提交数据"><a href="#Read-committied-读已提交数据" class="headerlink" title="Read committied(读已提交数据)"></a>Read committied(读已提交数据)</h5></li>
-<li><h5 id="Repea-read-可重复读"><a href="#Repea-read-可重复读" class="headerlink" title="Repea read(可重复读)"></a>Repea read(可重复读)</h5></li>
-<li><h5 id="Serializable-可序列化"><a href="#Serializable-可序列化" class="headerlink" title="Serializable(可序列化)"></a>Serializable(可序列化)</h5></li>
-</ol>
-<p>在 InnoDB 中，默认为 Repeatable （可重复的）级别，InnoDB 中使用一种被称为 next-key locking 的策略来避免phantom（幻读）现象的产生。</p>
-<p>使用 <code>select @@tx_isolation;</code> 可以查看 MySQL 默认的事务隔离级别。</p>
-<p>不同的事务隔离级别会导致不同的问题：</p>
-<table>
-<thead>
-<tr>
-<th>隔离级别</th>
-<th>脏读</th>
-<th>不可重复读</th>
-<th>幻读</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Read uncommittied(读未提交数据)</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-</tr>
-<tr>
-<td>Read committied(读已提交数据)</td>
-<td>×</td>
-<td>√</td>
-<td>√</td>
-</tr>
-<tr>
-<td>Repea read(可重复读)</td>
-<td>×</td>
-<td>×</td>
-<td>√</td>
-</tr>
-<tr>
-<td>Serializable(可序列化)</td>
-<td>×</td>
-<td>×</td>
-<td>×</td>
-</tr>
-</tbody></table>
-<h3 id="事务七种传播行为："><a href="#事务七种传播行为：" class="headerlink" title="事务七种传播行为："></a>事务七种传播行为：</h3><table>
-<thead>
-<tr>
-<th><strong>事务传播行为类型</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PROPAGATION_REQUIRED</td>
-<td>如果当前没有事务，就创建一个新事务，如果当前存在事务，就加入该事务。这是最常见的选择。</td>
-</tr>
-<tr>
-<td>PROPAGATION_SUPPORTS</td>
-<td>支持当前事务，如果当前没有事务，就以非事务方式执行。</td>
-</tr>
-<tr>
-<td>PROPAGATION_MANDATORY</td>
-<td>使用当前的事务，如果当前没有事务，就抛出异常。</td>
-</tr>
-<tr>
-<td>PROPAGATION_REQUIRED_NEW</td>
-<td>新建事务，如果当前存在事务，就把当前事务挂起。</td>
-</tr>
-<tr>
-<td>PROPAGATION_NOT_SUPPORTED</td>
-<td>以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</td>
-</tr>
-<tr>
-<td>PROPAGATION_NEVER</td>
-<td>以非事务方式执行操作，如果当前存在事务，则抛出异常。</td>
-</tr>
-<tr>
-<td>PROPAGATION_NESTED</td>
-<td>如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。</td>
-</tr>
-</tbody></table>
-<h3 id="脏读、幻读、不可重复读的概念"><a href="#脏读、幻读、不可重复读的概念" class="headerlink" title="脏读、幻读、不可重复读的概念"></a>脏读、幻读、不可重复读的概念</h3><h4 id="脏读：脏读是指一个事务中访问到了另外一个事务未提交的数据"><a href="#脏读：脏读是指一个事务中访问到了另外一个事务未提交的数据" class="headerlink" title="脏读：脏读是指一个事务中访问到了另外一个事务未提交的数据"></a>脏读：脏读是指一个事务中访问到了另外一个事务未提交的数据</h4><p>所谓脏读是指一个事务中访问到了另外一个事务未提交的数据，如下图：</p>
-<table>
-<thead>
-<tr>
-<th align="center">事务A</th>
-<th align="center">事务B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">账户5000</td>
-<td align="center">账户5000</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">小明老婆花了3000</td>
-</tr>
-<tr>
-<td align="center">小明查看账户2000（产生脏读）</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">取款操作发生未知错误，事务B回滚，账户还是5000（rollback）</td>
-</tr>
-<tr>
-<td align="center">commit</td>
-<td align="center">commit</td>
-</tr>
-</tbody></table>
-<p>事务B更新账户为2000，但是在事务B commit之前，事务A查看账户时是事务B还未提交的数据，此时事务B出现错误执行rollback，而事务A拿到的还是2000，这就是脏读。</p>
-<h4 id="不可重复读：同一个事务中重复读取时获得的数据不同"><a href="#不可重复读：同一个事务中重复读取时获得的数据不同" class="headerlink" title="不可重复读：同一个事务中重复读取时获得的数据不同"></a>不可重复读：同一个事务中重复读取时获得的数据不同</h4><table>
-<thead>
-<tr>
-<th align="center">事务A</th>
-<th align="center">事务B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">账户5000</td>
-<td align="center">账户5000</td>
-</tr>
-<tr>
-<td align="center">小明查看账户5000</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">小明老婆花了3000（修改该账户）</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">commit</td>
-</tr>
-<tr>
-<td align="center">小明查看账户2000</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">commit</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<p>在事务A中事务B修改了该账户，所以两次得到的值不同。</p>
-<h4 id="幻读：幻读是不可重复读的特殊场景，但是事务二的数据操作仅仅是插入和删除，不是修改数据，读取的记录数量前后不一致"><a href="#幻读：幻读是不可重复读的特殊场景，但是事务二的数据操作仅仅是插入和删除，不是修改数据，读取的记录数量前后不一致" class="headerlink" title="幻读：幻读是不可重复读的特殊场景，但是事务二的数据操作仅仅是插入和删除，不是修改数据，读取的记录数量前后不一致"></a>幻读：幻读是不可重复读的特殊场景，但是事务二的数据操作仅仅是插入和删除，不是修改数据，读取的记录数量前后不一致</h4><table>
-<thead>
-<tr>
-<th align="center">事务A</th>
-<th align="center">事务B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">查询id&gt;100的用户（只有102）</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">插入id=101的用户（John）</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">commit</td>
-</tr>
-<tr>
-<td align="center">插入id=1的用户（主键冲突，幻读）</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">commit</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h4 id="幻读和不可重复读的区别："><a href="#幻读和不可重复读的区别：" class="headerlink" title="幻读和不可重复读的区别："></a>幻读和不可重复读的区别：</h4><p>由于很多人(当然也包括本人), 容易搞混 <code>不可重复读</code> 和 <code>幻读</code>, 这两者确实非常相似。</p>
-<ul>
-<li><p>但 <code>不可重复读</code> 主要是说多次读取一条记录, 发现该记录中某些列值被==修改==过。</p>
-</li>
-<li><p>而 <code>幻读</code> 主要是说多次读取<strong>一个范围内的记录</strong>(包括直接查询所有记录结果或者做聚合统计), 发现结果不一致(标准档案一般指<strong>记录增多</strong>, <strong>记录的减少</strong>应该也算是幻读)。(可以参考<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-next-key-locking.html" target="_blank" rel="noopener">MySQL官方文档对 Phantom Rows 的介绍</a>)</p>
-<pre><code>其实对于 `幻读`, MySQL的InnoDB引擎默认的`RR`级别已经通过`MVCC自动帮我们解决了`, 所以该级别下, 你也模拟不出幻读的场景; 退回到 `RC` 隔离级别的话, 你又容易把`幻读`和`不可重复读`搞混淆, 所以这可能就是比较头痛的点吧!</code></pre><p>  具体可以参考《高性能MySQL》对 <code>RR</code> 隔离级别的描述, 理论上RR级别是无法解决幻读的问题, 但是由于InnoDB引擎的RR级别还使用了MVCC（多版本并发控制）, 所以也就避免了幻读的出现!</p>
-</li>
-</ul>
-<p>总结：</p>
-<p>（1）不可重复读是读取了其他事务更改的数据，针对update操作</p>
-<p>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。</p>
-<p>（2）幻读是读取了其他事务新增的数据，针对insert与delete操作</p>
-<p>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。</p>
-<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>解决方案也就是上文提到的四种隔离级别，他们可以最大程度避免以上三种情况的发生：</p>
-<ul>
-<li><p>读未提交（Read Uncommitted）：允许脏读取，但不允许更新丢失。如果一个事务已经开始写数据，则另外一个事务则不允许同时进行写操作，但允许其他事务读此行数据。该隔离级别可以通过“排他锁”（写锁）实现。</p>
-</li>
-<li><p>读提交（Read Committed）：允许不可重复读取，但不允许脏读取。这可以通过“共享锁”（读锁）和“排他锁”（写锁）实现。读取数据的事务允许其他事务继续访问该行数据，但是未提交的写事务将会禁止其他事务访问该行。</p>
-</li>
-<li><p>可重复读取（Repeatable Read）：禁止不可重复读取和脏读取，但是有时可能出现幻读数据。这可以通过“共享锁”（读锁）和“排他锁”（写锁）实现。读取数据的事务将会禁止写事务（但允许读事务），写事务则禁止任何其他事务。</p>
-</li>
-<li><p>序列化（Serializable）：提供严格的事务隔离。它要求事务序列化执行，事务只能一个接着一个地执行，不能并发执行。仅仅通过“行级锁”是无法实现事务序列化的，必须通过其他机制保证新插入的数据不会被刚执行查询操作的事务访问到。</p>
-<pre><code>隔离级别越高，越能保证数据的完整性和一致性，但是对并发性能的影响也越大。对于多数应用程序，可以优先考虑把数据库系统的隔离级别设为Read Committed。它能够避免脏读取，而且具有较好的并发性能。尽管它会导致不可重复读、幻读和第二类丢失更新这些并发问题，在可能出现这类问题的个别场合，可以由应用程序采用悲观锁或乐观锁来控制。</code></pre></li>
-</ul>
-<h4 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h4><p><strong>第一类丢失更新</strong>(回滚丢失，Lost update) ： A事务撤销时，把已经提交的B事务的更新数据覆盖了。</p>
-<table>
-<thead>
-<tr>
-<th align="center">事务A</th>
-<th align="center">事务B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">查询账户余额1000</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">查询并汇入1000元，余额改为2000元</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">commit</td>
-</tr>
-<tr>
-<td align="center">取出1000元，把余额改为0元</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">撤销事务</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">余额1000（丢失更新）</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h5 id="第二类丢失更新-覆盖丢失-两次更新问题，Second-lost-update-：-A事务覆盖B事务已经提交的数据，造成B事务所做操作丢失"><a href="#第二类丢失更新-覆盖丢失-两次更新问题，Second-lost-update-：-A事务覆盖B事务已经提交的数据，造成B事务所做操作丢失" class="headerlink" title="第二类丢失更新(覆盖丢失/两次更新问题，Second lost update) ： A事务覆盖B事务已经提交的数据，造成B事务所做操作丢失"></a><strong>第二类丢失更新</strong>(覆盖丢失/两次更新问题，Second lost update) ： A事务覆盖B事务已经提交的数据，造成B事务所做操作丢失</h5><table>
-<thead>
-<tr>
-<th align="center">事务A</th>
-<th align="center">事务B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"></td>
-<td align="center">查询账户余额1000</td>
-</tr>
-<tr>
-<td align="center">查询账户余额1000</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">取出1000元，把余额改为0元</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">commit</td>
-</tr>
-<tr>
-<td align="center">汇入1000元</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">commit</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">余额2000（丢失更新）</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="解决方案：-1"><a href="#解决方案：-1" class="headerlink" title="解决方案："></a>解决方案：</h3><h4 id="悲观锁和乐观锁"><a href="#悲观锁和乐观锁" class="headerlink" title="悲观锁和乐观锁"></a>悲观锁和乐观锁</h4><ul>
-<li>悲观锁（Pessimistic Lock）</li>
-</ul>
-<p>每次获取数据的时候，都会担心数据被修改，所以每次获取数据的时候都会进行加锁，确保在自己使用的过程中数据不会被别人修改，使用完成后进行数据解锁。由于数据进行加锁，期间对该数据进行读写的其他线程都会进行等待。</p>
-<ul>
-<li>乐观锁（Optimistic Lock）</li>
-</ul>
-<p>每次获取数据的时候，都不会担心数据被修改，所以每次获取数据的时候都不会进行加锁，但是在更新数据的时候需要判断该数据是否被别人修改过。如果数据被其他线程修改，则不进行数据更新，如果数据没有被其他线程修改，则进行数据更新。由于数据没有进行加锁，期间该数据可以被其他线程进行读写操作。</p>
-<h3 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a>适用场景：</h3><p>悲观锁：比较适合==写入操作==比较频繁的场景，如果出现大量的读取操作，每次读取的时候都会进行加锁，这样会增加大量的锁的开销，降低了系统的吞吐量。</p>
-<p>乐观锁：比较适合==读取操作==比较频繁的场景，如果出现大量的写入操作，数据发生冲突的可能性就会增大，为了保证数据的一致性，应用层需要不断的重新获取数据，这样会增加大量的查询操作，降低了系统的吞吐量。</p>
-<p>总结：两种所各有优缺点，读取频繁使用乐观锁，写入频繁使用悲观锁。</p>
-<p><strong>悲观锁比较适合强一致性的场景，但效率比较低，特别是读的并发低。乐观锁则适用于读多写少，并发冲突少的场景。</strong></p>
-<h3 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h3><p>RC级别，提供了读锁和写锁，解决了脏读问题。</p>
-<p>RR级别，在已有读锁和写锁的基础上，增加了gap锁，即间隙锁，解决了幻读的问题(间隙锁解决了幻读，由此就能明白到底什么是幻读了)。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2020/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%EF%BC%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%EF%BC%8C%E8%84%8F%E8%AF%BB%EF%BC%8C%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%EF%BC%8C%E5%B9%BB%E8%AF%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -752,13 +479,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -800,7 +527,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">23k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -831,6 +558,26 @@ setInterval("createtime()",250);
 </script>
 
         
+<div class="busuanzi-count">
+  <script type="text/javascript" src="/blog/js/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -903,7 +650,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   
 <script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
-<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/blog/js/clicklove.js"></script>
 
 <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 

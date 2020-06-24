@@ -1,0 +1,25 @@
+<div>
+    {% if not is_index %}
+        <div class="end-slogan" style="text-align:center;font-size:13px;letter-spacing:10px;user-select:none;color:#bbb;"><br/>本文结束啦<i class="fa fa-star"></i>感谢您阅读<br/><br/></div>
+    {% endif %}
+</div> 
+
+{% if theme.recommended_posts.enabled and not is_index %}
+<div class="post-body">
+  <div class="note primary">
+    <div class="recommended_posts">
+      {% set recommended_posts = recommended_posts(post, site) %}
+      {% if recommended_posts.length > 0 %}
+        <h4>{{ __('推荐文章') }}</h4>
+        <ul>
+          {% for link in recommended_posts  %}
+            <li><a href="{{ link.permalink }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %} 
+    </div> 
+  </div>
+</div>
+{% endif %}
+
+

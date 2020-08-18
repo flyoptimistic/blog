@@ -7,3 +7,5 @@ public/
 .deploy*/
 debug.log
 .deploy_git
+.idea
+blog.iml

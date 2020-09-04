@@ -19,7 +19,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"flyoptimistic.github.io","root":"/blog/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"perfectfly.gitee.io","root":"/blog/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
@@ -40,20 +40,20 @@
   <meta name="description" content="为什么要写个人博客？ 个人空间：科技发展迅猛的情况下，网民日益增加，在这个流量为王的时代，通过个人博客来提高自己的知名度，打造个人品牌能为自己带来更多的益处。 学无止境：学如逆水行舟，不进则退。在行业竞争力日益激烈的情况下，通过运营个人博客来让自己的知识不断增长，避免成为时代落伍，淘汰的那部分人。通过记录博客让自己对知识的理解更加深刻,同时可以当做备忘录的存在，好记性不如写博客。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitPages和Hexo搭建个人博客">
-<meta property="og:url" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:url" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="北木南的博客">
 <meta property="og:description" content="为什么要写个人博客？ 个人空间：科技发展迅猛的情况下，网民日益增加，在这个流量为王的时代，通过个人博客来提高自己的知名度，打造个人品牌能为自己带来更多的益处。 学无止境：学如逆水行舟，不进则退。在行业竞争力日益激烈的情况下，通过运营个人博客来让自己的知识不断增长，避免成为时代落伍，淘汰的那部分人。通过记录博客让自己对知识的理解更加深刻,同时可以当做备忘录的存在，好记性不如写博客。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%96%B0%E5%BB%BAGitPages%E4%BB%93%E5%BA%93.png">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%88%9B%E5%BB%BAleancloud%E5%BA%94%E7%94%A8.png">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/leancloud_%E5%88%9B%E5%BB%BAclass.png">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/leancloud_%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.png">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%88%86%E4%BA%AB%E9%80%89%E6%8B%A9%E6%8C%89%E9%92%AE.png">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%94%9F%E6%88%90%E5%88%86%E4%BA%ABid.png">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%A0%87%E7%AD%BE%E4%BA%91.gif">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%BA%BF%E6%80%A7%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF.gif">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90.png">
-<meta property="og:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%94%9F%E6%88%90%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE%E4%BB%A3%E7%A0%81.png">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%96%B0%E5%BB%BAGitPages%E4%BB%93%E5%BA%93.png">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%88%9B%E5%BB%BAleancloud%E5%BA%94%E7%94%A8.png">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/leancloud_%E5%88%9B%E5%BB%BAclass.png">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/leancloud_%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%88%86%E4%BA%AB%E9%80%89%E6%8B%A9%E6%8C%89%E9%92%AE.png">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%94%9F%E6%88%90%E5%88%86%E4%BA%ABid.png">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%A0%87%E7%AD%BE%E4%BA%91.gif">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%BA%BF%E6%80%A7%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF.gif">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90.png">
+<meta property="og:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%94%9F%E6%88%90%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE%E4%BB%A3%E7%A0%81.png">
 <meta property="article:published_time" content="2020-06-17T03:28:50.000Z">
 <meta property="article:modified_time" content="2020-08-26T13:24:27.980Z">
 <meta property="article:author" content="北木南">
@@ -61,9 +61,9 @@
 <meta property="article:tag" content="GitPages">
 <meta property="article:tag" content="个人博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%96%B0%E5%BB%BAGitPages%E4%BB%93%E5%BA%93.png">
+<meta name="twitter:image" content="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%96%B0%E5%BB%BAGitPages%E4%BB%93%E5%BA%93.png">
 
-<link rel="canonical" href="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 
 
 <script id="page-configurations">
@@ -225,7 +225,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://flyoptimistic.github.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://perfectfly.gitee.io/blog/2020/06/17/GitPages%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.jpg">
@@ -542,13 +542,13 @@
         <h4>推荐文章</h4>
         <ul>
           
-            <li><a href="https://flyoptimistic.github.io/blog/2020/08/18/MySQL%E9%94%81/">MySQL锁</a></li>
+            <li><a href="https://perfectfly.gitee.io/blog/2020/08/18/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">Linux 基础命令</a></li>
           
-            <li><a href="https://flyoptimistic.github.io/blog/2020/08/18/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li>
+            <li><a href="https://perfectfly.gitee.io/blog/2020/08/18/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li>
           
-            <li><a href="https://flyoptimistic.github.io/blog/2020/08/18/%E7%BD%91%E5%85%B3/">网关</a></li>
+            <li><a href="https://perfectfly.gitee.io/blog/2020/08/18/%E7%BD%91%E5%85%B3/">网关</a></li>
           
-            <li><a href="https://flyoptimistic.github.io/blog/2020/06/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">计算器组成</a></li>
+            <li><a href="https://perfectfly.gitee.io/blog/2020/06/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/">计算器组成</a></li>
           
         </ul>
        
